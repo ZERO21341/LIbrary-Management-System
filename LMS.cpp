@@ -73,24 +73,17 @@ int main() {
 
             case 2: {
                 if (bookCollection.empty()) {
-                    cout << "No books available to remove.\n";
-                    break;
-                }
-
-                int removeIndex;
-                cout << "Enter the Book ID to remove (1 to " << bookCollection.size() << "): ";
-                cin >> removeIndex;
-                cin.ignore();
-
-                if (removeIndex < 1 || removeIndex > bookCollection.size()) {
-                    cout << "Invalid Book ID!\n";
+                    cout << "No books in the collection.\n";
                 } else {
-                    bookCollection.erase(bookCollection.begin() + (removeIndex - 1));
-                    cout << "Book removed successfully!\n";
+                    cout << "\nDisplaying All Books:\n";
+                    for (size_t i = 0; i < bookCollection.size(); i++) {
+                        cout << "Book ID [" << i + 1 << "]\n";
+                        bookCollection[i].display();
+                    }
                 }
                 break;
             }
-
+            
             case 3:
                 cout << "Exiting the program.\n";
                 break;
